@@ -60,7 +60,7 @@ export function CategoriesCarousel() {
 						<CategoryButton
 							to={
 									{
-										pathname: '/menu',
+										pathname: '/usuario/menu',
 										search: `?category=${category.id}`,
 									}}
 						>

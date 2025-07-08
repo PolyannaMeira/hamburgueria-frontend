@@ -21,7 +21,7 @@ export function Header() {
   const { logout, userInfo } = useUser();
   const {pathname} = useResolvedPath();
   const { cartQuantity } = useCart();
-  console.log('Cart Quantity:', cartQuantity);
+  
 
 
   function logoutUser () {
@@ -34,9 +34,9 @@ export function Header() {
       <Content>
 			<Navigation>
 				<div>
-					<HeaderLink to="/" $isActive={pathname === '/'}>Home</HeaderLink>
+					<HeaderLink to="/usuario/home" $isActive={pathname === '/usuario/home'}>Home</HeaderLink>
           <hr />
-					<HeaderLink to="/menu" $isActive={pathname === '/menu'}>Cardápio</HeaderLink>
+					<HeaderLink to="/usuario/menu" $isActive={pathname === '/usuario/menu'}>Cardápio</HeaderLink>
 				</div>
 			</Navigation>
 			<Options>
@@ -73,7 +73,7 @@ export function Header() {
       </span>
     )}
   </div>
-				<HeaderLink to='/carrinho'>Carrinho</HeaderLink>
+				<HeaderLink to='/usuario/carrinho'>Carrinho</HeaderLink>
 			</LinkContainer>
 			</Options>
 			

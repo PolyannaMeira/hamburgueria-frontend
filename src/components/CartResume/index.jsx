@@ -33,7 +33,7 @@ export function CartResume() {
         try{
           const {data} = await api.post('/create-payment-intent', {products});
             
-          navigate('/checkout', {
+          navigate('/usuario/checkout', {
             state: { clientSecret: data.clientSecret }
           });
           

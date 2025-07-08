@@ -42,35 +42,32 @@ export function Login() {
 	});
 
 	const onSubmit = async (data) => {
-		try {
-			const { data: userData } = await toast.promise(
-				api.post('/sessions', {
-					email: data.email,
-					password: data.password,
-				}),
-				{
-					pending: 'Verificando seus dados',
-					success: {
-						render() {
-							setTimeout(() => {
-								if (userData?.admin) {
-									navigate('/admin/pedidos');
-								} else {
-									navigate('/');
-								}
-							}, 2000);
-							return 'Seja bem vindo(a) 👌';
-						},
-					},
-					error: 'Email ou Senha Incorretos 🤯',
-				},
-			);
-			putUserData(userData);
-		} catch (error) {
-			console.error('Erro ao fazer login:', error);
-			toast.error('Ocorreu um erro inesperado. Tente novamente mais tarde.');
-		}
-	};
+  try {
+    const { data: userData } = await toast.promise(
+      api.post('/sessions', {
+        email: data.email,
+        password: data.password,
+      }),
+      {
+        pending: 'Verificando seus dados...',
+        success: 'Seja bem-vindo(a) 👌',
+        error: 'Email ou Senha Incorretos 🤯',
+      }
+    );
+
+    putUserData(userData);
+
+    if (userData?.admin) {
+      navigate('/admin/pedidos');
+    } else {
+      navigate('/usuario/home');
+    }
+  } catch (error) {
+    console.error('Erro ao fazer login:', error);
+    toast.error('Ocorreu um erro inesperado. Tente novamente mais tarde.');
+  }
+};
+
 
 	return (
 		<Container>

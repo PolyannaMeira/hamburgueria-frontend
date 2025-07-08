@@ -4,32 +4,30 @@ import UserLayout from '../layouts/UserLayout';
 import { AdminLayout } from '../layouts/AdminLayout';
 import { DeleteProduct } from '../containers/Admin/DeleteProduct';
 
-export function Router(){
-	return(
-		<Routes>
-			<Route path="/" element={<Navigate to="/login" />} />
+export function Router() {
+  return (
+    <Routes>
+      
+      <Route path="/" element={<Navigate to="/login" />} />
 
-			<Route path="/login" element = {<Login/>}/>
-			<Route path="/cadastro" element = {<Register/>}/>
+      <Route path="/login" element={<Login />} />
+      <Route path="/cadastro" element={<Register />} />
 
-			<Route path="/" element = {<UserLayout/>}>
-			<Route path="/" element = {<Home/>}/>
-			<Route path="/menu" element = {<Menu/>}/>
-			<Route path="/carrinho" element = {<Cart/>}/>
-			<Route path="/checkout" element = {<CheckOut/>}/>
-			<Route path="/completepayment" element = {<CompletePayment/>}/>
-			</Route>
+      <Route path="/usuario" element={<UserLayout />}>
+        <Route path="/usuario/home" element={<Home />} />
+        <Route path="/usuario/menu" element={<Menu />} />
+        <Route path="/usuario/carrinho" element={<Cart />} />
+        <Route path="/usuario/checkout" element={<CheckOut />} />
+        <Route path="/usuario/completepayment" element={<CompletePayment />} />
+      </Route>
 
-			<Route path="/admin" element={<AdminLayout/>}>
-			<Route path="/admin/pedidos" element={<Orders/>}/>
-			<Route path="/admin/novo-produto" element={<NewProduct/>}/>
-			<Route path="/admin/editar-produto" element={<EditProduct/>}/>
-			<Route path="/admin/produtos" element={<Products/>}/>
-			<Route path="/admin/delete-produto" element={<DeleteProduct/>}/>
-			
-			</Route>
-
-			
-		</Routes>
-	)
+      <Route path="/admin" element={<AdminLayout />}>
+        <Route path="/admin/pedidos" element={<Orders />} />
+        <Route path="/admin/novo-produto" element={<NewProduct />} />
+        <Route path="/admin/editar-produto" element={<EditProduct />} />
+        <Route path="/admin/produtos" element={<Products />} />
+        <Route path="/admin/delete-produto" element={<DeleteProduct />} />
+      </Route>
+    </Routes>
+  )
 }
