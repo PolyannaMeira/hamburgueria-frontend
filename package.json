@@ -12,6 +12,7 @@
   "dependencies": {
     "@emotion/react": "^11.14.0",
     "@emotion/styled": "^11.14.0",
+    "@hookform/resolvers": "^5.1.1",
     "@mui/icons-material": "^7.1.0",
     "@mui/material": "^7.1.0",
     "@phosphor-icons/react": "^2.1.7",
@@ -23,11 +24,13 @@
     "prop-types": "^15.8.1",
     "react": "^19.0.0",
     "react-dom": "^19.0.0",
+    "react-hook-form": "^7.60.0",
     "react-multi-carousel": "^2.8.6",
     "react-router-dom": "^7.4.1",
     "react-select": "^5.10.1",
     "react-toastify": "^11.0.5",
-    "styled-components": "^6.1.16"
+    "styled-components": "^6.1.16",
+    "yup": "^1.6.1"
   },
   "devDependencies": {
     "@biomejs/biome": "1.9.4",

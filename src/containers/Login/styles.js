@@ -105,7 +105,7 @@ export const InputContainer = styled.div`
 `
 export const Link = styled(ReactLink)`
   text-decoration: none;
-  color: ${props => props.theme.white};
+  color: ${props => props.theme.purple};
 
 `;
 ;

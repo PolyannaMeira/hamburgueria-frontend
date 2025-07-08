@@ -1,4 +1,4 @@
-import { Routes, Route } from 'react-router-dom';
+import { Routes, Route, Navigate } from 'react-router-dom';
 import { Login, Register, Home, Menu, Cart, CheckOut, CompletePayment, Orders, NewProduct, EditProduct, Products } from '../containers';
 import UserLayout from '../layouts/UserLayout';
 import { AdminLayout } from '../layouts/AdminLayout';
@@ -7,6 +7,11 @@ import { DeleteProduct } from '../containers/Admin/DeleteProduct';
 export function Router(){
 	return(
 		<Routes>
+			<Route path="/" element={<Navigate to="/login" />} />
+
+			<Route path="/login" element = {<Login/>}/>
+			<Route path="/cadastro" element = {<Register/>}/>
+
 			<Route path="/" element = {<UserLayout/>}>
 			<Route path="/" element = {<Home/>}/>
 			<Route path="/menu" element = {<Menu/>}/>
@@ -24,8 +29,7 @@ export function Router(){
 			
 			</Route>
 
-			<Route path="/login" element = {<Login/>}/>
-			<Route path="/cadastro" element = {<Register/>}/>
+			
 		</Routes>
 	)
 }
