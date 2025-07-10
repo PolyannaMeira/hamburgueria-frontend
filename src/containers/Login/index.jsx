@@ -1,4 +1,5 @@
 import { useForm } from 'react-hook-form';
+import { useLocation } from 'react-router-dom';
 import { yupResolver } from '@hookform/resolvers/yup';
 import * as yup from 'yup';
 import { api } from '../../services/api';
@@ -19,7 +20,10 @@ import Logo from '../../assets/devburguer-logo.png';
 
 export function Login() {
 	const navigate = useNavigate();
-	const { putUserData } = useUser();
+const location = useLocation();
+const { putUserData } = useUser();
+const from = location.state?.from || '/home';
+
 	const schema = yup
 		.object({
 			email: yup
@@ -58,10 +62,11 @@ export function Login() {
     putUserData(userData);
 
     if (userData?.admin) {
-      navigate('/admin/pedidos');
-    } else {
-      navigate('/usuario/home');
-    }
+  navigate('/admin/pedidos');
+} else {
+  navigate(from);
+}
+
   } catch (error) {
     console.error('Erro ao fazer login:', error);
     toast.error('Ocorreu um erro inesperado. Tente novamente mais tarde.');

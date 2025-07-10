@@ -33,6 +33,7 @@ export const CartProvider = ({children}) => {
     
 
     const clearCart = () => {
+        console.log('CLEARCART: Clearing cart');
         setCartProducts([]);
         updateLocalStorage([]);
     }
@@ -67,6 +68,7 @@ export const CartProvider = ({children}) => {
     }
 
     const updateLocalStorage = (products) => {
+        console.log('UPDATELOCALSTORAGE: Saving', products);
         localStorage.setItem('devburger:cartInfo', JSON.stringify(products));
 
     }
