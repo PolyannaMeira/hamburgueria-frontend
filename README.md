@@ -47,6 +47,7 @@ The focus is on applying best development practices, backend integration, API co
 * **Context API** (to manage global state)
 
 ### Backend:
+https://github.com/PolyannaMeira/hamburgueria-backend
 
 * **Node.js** with **Express**
 * **MongoDB** with **Mongoose**
