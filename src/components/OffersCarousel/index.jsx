@@ -13,8 +13,9 @@ export function OffersCarousel(){
     useEffect(() => {
       async function loadProducts() {
           try {
-              const { data } = await api.get('/products');
-              const onlyOffers = data
+          const { data } = await api.get('/products');
+          const products = Array.isArray(data) ? data : (data?.products ?? []);
+          const onlyOffers = products
               .filter((product) => product.offer)
               .map((product) => ({
                   currencyValue: formatPrice(product.price), ...product,

@@ -18,7 +18,8 @@ export function CategoriesCarousel() {
 		async function loadCategories() {
 			try {
 				const { data } = await api.get('/categories');
-				setCategories(data);
+				const categoriesList = Array.isArray(data) ? data : (data?.categories ?? []);
+				setCategories(categoriesList);
 				
 			} catch (error) {
 				console.error('Failed to load categories:', error);

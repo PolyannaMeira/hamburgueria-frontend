@@ -34,7 +34,8 @@ export function Menu() {
 		async function loadCategories() {
 			try {
 				const { data } = await api.get('/categories');
-				const newCategories = [{ id: 0, name: 'Todas' }, ...data];
+				const categoriesList = Array.isArray(data) ? data : (data?.categories ?? []);
+				const newCategories = [{ id: 0, name: 'Todas' }, ...categoriesList];
 				setCategories(newCategories);
 				
 			} catch (error) {
@@ -45,7 +46,8 @@ export function Menu() {
 		async function loadProducts() {
 			try {
 				const { data } = await api.get('/products');
-				const newProducts = data.map((product) => ({
+				const productsList = Array.isArray(data) ? data : (data?.products ?? []);
+				const newProducts = productsList.map((product) => ({
 					currencyValue: formatPrice(product.price),
 					...product,
 				}));
