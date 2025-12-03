@@ -3,8 +3,7 @@ import styled from "styled-components";
 
 export const Container = styled.div`
   .carousel-item{
-    padding-right: 40px;
-    padding-left: 100px;
+    padding: 0 8px;
   }
 `;
 
@@ -35,7 +34,7 @@ export const ContainerItems = styled.div`
   background-size: cover;
   background-position: center;
   height: 250px;
-  width: 300px;
+  width: 100%;
   display: flex;
   align-items: center;
   justify-content: center;
